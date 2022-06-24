@@ -3,7 +3,7 @@ import {AddCategory, GifGrid} from "./components";
 
 export const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['Pixel Art']);
+    const [categories, setCategories] = useState(['Pixel Art', 'Terraria']);
 
     const onAddCategory = (newCategory) => {
         if (!categories.includes(newCategory)) {
@@ -12,7 +12,9 @@ export const GifExpertApp = () => {
         }
     }
 
-
+    const onRemoveCategory = (category) => {
+        console.log(category);
+    }
 
     return (
         <>
@@ -32,7 +34,7 @@ export const GifExpertApp = () => {
                     < GifGrid
                         key={category}
                         category={category}
-                        onDeleteCategory={(value) => onRemoveCategory(value)}
+                        onDeleteCategory={(category) => onRemoveCategory(category)}
                     />
                 )
             ))}
